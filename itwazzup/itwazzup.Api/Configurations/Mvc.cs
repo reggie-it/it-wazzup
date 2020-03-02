@@ -31,6 +31,8 @@ namespace itwazzup.Api.Configurations
         /// <param name="app">App.</param>
         internal static void ConfigureMvc (IApplicationBuilder app) {
             app.UseRouting();
+            app.UseCors("my-cors-policy");
+
             app.UseEndpoints(endpoints =>
             {
 

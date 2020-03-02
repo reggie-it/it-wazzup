@@ -8,7 +8,7 @@ using Queries = itwazzup.Application.Account.Queries;
 
 namespace itwazzup.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/account")]
     public class AccountController : MediatorController
     {
 

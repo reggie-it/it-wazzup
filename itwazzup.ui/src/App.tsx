@@ -1,16 +1,27 @@
-import React from 'react';
-import Menu from './components/menu/menu.component';
-import Home from './components/home/home.component';
+import React, { ReactElement, FunctionComponent } from 'react';
+import { RouteComponentProps, withRouter } from 'react-router-dom';
+import Login from './components/login/login.component';
+import Routes from './routes';
+import useUser from './shared/context/User/useUser';
+// import { setAuthorizationHeader } from './api-client/planit/base';
 
-import './App.scss';
+type Props = {} & RouteComponentProps;
 
-function App() {
+const App: FunctionComponent<Props> = (props: Props): ReactElement => {
+  const { userSession, userIdentity } = useUser();
+
+  // if (!userSession || !userIdentity) return <Login />;
+  if (userSession) {
+    // setAuthorizationHeader(userSession.accessToken);
+    console.log(userSession);
+  }
   return (
-    <>
-      <Menu />
-      <Home />
-    </>
+    <div>
+      <main>
+        <Routes />
+      </main>
+    </div>
   );
-}
+};
 
-export default App;
+export default withRouter(App);

@@ -32,6 +32,14 @@ namespace itwazzup.Api
             RegisterSwagger(services);
             RegisterMediatR(services);
             RegisterAutoMapper(services);
+            services.AddCors(options =>
+            {
+                options.AddPolicy("my-cors-policy",
+                builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
             IMvcBuilder mvcBuilder = RegisterMvc(services);
             AddFluentValidation(mvcBuilder);
             services.AddSingleton<ILdapService, LdapService>();
