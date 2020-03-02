@@ -35,6 +35,7 @@ namespace itwazzup.Api
             IMvcBuilder mvcBuilder = RegisterMvc(services);
             AddFluentValidation(mvcBuilder);
             services.AddSingleton<ILdapService, LdapService>();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
