@@ -1,0 +1,9 @@
+{
+  "Name":  "itwazzup",
+  "Projects" :  {
+    "WebApi": "itwazzup.Api",
+    "Application": "itwazzup.Application",
+    "ApplicationUnitTest": "itwazzup.ApplicationUnitTest",
+    "ServicesUnitTest": "itwazzup.ServicesUnitTest"
+  }
+}
