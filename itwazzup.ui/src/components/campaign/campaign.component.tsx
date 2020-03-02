@@ -3,15 +3,11 @@ import { Card } from '@infotrack/zenith-ui';
 
 import './campaign.styles.scss';
 
-const Campaign = () => {
+const Campaign = (data: any) => {
   return (
-    <Card
-      borderRadiusSize="md"
-      cardTitle="Basic card"
-      spacing="md"
-      variant="basic"
-    >
-      <p>Some random content</p>
+    <Card borderRadiusSize="md" spacing="md" variant="basic">
+      <h1>{data.campaign.name}</h1>
+      <p>{data.campaign.description}</p>
     </Card>
   );
 };
