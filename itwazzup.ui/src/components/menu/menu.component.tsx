@@ -10,7 +10,7 @@ const Menu = () => {
       <Icon
         name="menu"
         size="large"
-        variant="rounded"
+        variant={'rounded'}
         className="hamburger-menu"
       />
     </div>

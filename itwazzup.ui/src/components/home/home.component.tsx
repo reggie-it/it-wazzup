@@ -22,10 +22,17 @@ const Home = () => {
     loadCampaigns();
   }, []);
 
+  const handleOnCampaignClick = (campaign: any) => {
+    console.log('clicked');
+  };
+
   return (
     <div className="campaigns">
       {campaigns.map(c => (
-        <Campaign campaign={c}></Campaign>
+        <Campaign
+          campaign={c}
+          onClick={() => handleOnCampaignClick(c)}
+        ></Campaign>
       ))}
     </div>
   );
