@@ -1,9 +1,16 @@
 import React from 'react';
 
-import './Home.styles.scss';
+import './home.styles.scss';
+import Campaign from '../campaign/campaign.component';
 
 const Home = () => {
-  return <div>Hello World</div>;
+  return (
+    <div>
+      <Campaign />
+      <Campaign />
+      <Campaign />
+    </div>
+  );
 };
 
 export default Home;
