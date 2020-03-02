@@ -3,17 +3,26 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.1",
-    "@testing-library/user-event": "^7.2.1",
-    "@types/jest": "^24.9.1",
-    "@types/node": "^12.12.29",
-    "@types/react": "^16.9.23",
-    "@types/react-dom": "^16.9.5",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
+    "@infotrack/zenith-ui": "2.36.0",
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.4.1",
+    "@testing-library/user-event": "7.2.1",
+    "@types/jest": "24.9.1",
+    "@types/lodash": "4.14.149",
+    "@types/node": "12.12.29",
+    "@types/react": "16.9.23",
+    "@types/react-dom": "16.9.5",
+    "@types/react-loadable": "5.5.3",
+    "@types/react-responsive": "8.0.2",
+    "axios": "0.19.2",
+    "lodash": "4.17.15",
+    "react": "16.13.0",
+    "react-dom": "16.13.0",
+    "react-loadable": "5.5.0",
+    "react-responsive": "8.0.3",
     "react-scripts": "3.4.0",
-    "typescript": "^3.7.5"
+    "react-use": "13.26.4",
+    "typescript": "3.7.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,5 +44,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "2.21.0",
+    "@typescript-eslint/parser": "2.21.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-config-react": "1.1.7",
+    "eslint-plugin-prettier": "3.1.2",
+    "node-sass": "4.13.1",
+    "prettier": "1.19.1"
   }
 }
