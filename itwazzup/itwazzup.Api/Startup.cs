@@ -12,6 +12,7 @@ using static itwazzup.Api.Configurations.Mvc;
 using static itwazzup.Api.Configurations.Swagger;
 using static itwazzup.Api.Configurations.Db;
 using itwazzup.Persistence.Context;
+using itwazzup.Services.LdapService;
 
 [assembly: ApiConventionType(typeof(DefaultApiConventions))]
 namespace itwazzup.Api
@@ -27,12 +28,13 @@ namespace itwazzup.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-			RegisterEntityFramework(services, Configuration);
-			RegisterSwagger(services);
+            RegisterEntityFramework(services, Configuration);
+            RegisterSwagger(services);
             RegisterMediatR(services);
             RegisterAutoMapper(services);
             IMvcBuilder mvcBuilder = RegisterMvc(services);
             AddFluentValidation(mvcBuilder);
+            services.AddSingleton<ILdapService, LdapService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,12 +44,12 @@ namespace itwazzup.Api
             Console.WriteLine(env.EnvironmentName);
             ConfigureSwagger(app);
             ConfigureMvc(app);
-			ConfigureDatabaseMigrations(context);
+            ConfigureDatabaseMigrations(context);
 
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-				SeedDatabase(context);
+                SeedDatabase(context);
             }
         }
     }
