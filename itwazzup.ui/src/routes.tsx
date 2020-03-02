@@ -2,6 +2,7 @@
 import { Route, Switch } from 'react-router-dom';
 import React, { ReactElement } from 'react';
 import LazyLoad from './shared/components/LazyComponent';
+import Menu from './components/menu/menu.component';
 
 const Campaign = React.lazy(() =>
   import('./components/campaign/campaign.component')
@@ -16,10 +17,13 @@ export enum RouteType {
 
 const Routes = (): ReactElement => {
   return (
-    <Switch>
-      <Route exact path={RouteType.Root} component={LazyLoad(Home)} />
-      <Route exact path={RouteType.Campaign} component={LazyLoad(Campaign)} />
-    </Switch>
+    <>
+      <Menu />
+      <Switch>
+        <Route exact path={RouteType.Root} component={LazyLoad(Home)} />
+        <Route exact path={RouteType.Campaign} component={LazyLoad(Campaign)} />
+      </Switch>
+    </>
   );
 };
 
