@@ -9,7 +9,9 @@ const Home = () => {
   const [campaigns, setCampaigns] = useState([]);
 
   const loadCampaigns = () => {
-    fetch(constants.HOST + 'api/campaign')
+    debugger;
+    const url = constants.HOST + 'api/campaign';
+    fetch(url)
       .then(function(response) {
         if (response.status !== 200) {
           console.log(
@@ -29,7 +31,7 @@ const Home = () => {
   };
 
   useAsync(async () => {
-    const response = await loadCampaigns();
+    const response = loadCampaigns();
 
     // if (response) {
     //   setCampaigns(response);

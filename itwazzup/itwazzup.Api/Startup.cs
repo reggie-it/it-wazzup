@@ -35,7 +35,12 @@ namespace itwazzup.Api
             IMvcBuilder mvcBuilder = RegisterMvc(services);
             AddFluentValidation(mvcBuilder);
             services.AddSingleton<ILdapService, LdapService>();
-            services.AddCors();
+            services.AddCors(o => o.AddPolicy("CORSPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +48,7 @@ namespace itwazzup.Api
         {
             Console.WriteLine("Current Environment");
             Console.WriteLine(env.EnvironmentName);
+            app.UseCors("CORSPolicy");
             ConfigureSwagger(app);
             ConfigureMvc(app);
             ConfigureDatabaseMigrations(context);
@@ -51,7 +57,7 @@ namespace itwazzup.Api
             {
                 app.UseDeveloperExceptionPage();
                 SeedDatabase(context);
-            }
+            }            
         }
     }
 }
