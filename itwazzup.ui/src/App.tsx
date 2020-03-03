@@ -3,6 +3,7 @@ import { RouteComponentProps, withRouter } from 'react-router-dom';
 import Login from './components/login/login.component';
 import Routes from './routes';
 import useUser from './shared/context/User/useUser';
+import { Helmet } from 'react-helmet';
 // import { setAuthorizationHeader } from './api-client/planit/base';
 
 type Props = {} & RouteComponentProps;
@@ -17,6 +18,12 @@ const App: FunctionComponent<Props> = (props: Props): ReactElement => {
   }
   return (
     <div>
+      <Helmet>
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+          rel="stylesheet"
+        />
+      </Helmet>
       <main>
         <Routes />
       </main>
