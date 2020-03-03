@@ -5,7 +5,8 @@ import { Button } from '@infotrack/zenith-ui';
 import './campaignItems.styles.scss';
 import { HOST } from '../../../constants/host';
 import { takeRight } from 'lodash';
-const CampaignItems = () => {
+import { withRouter } from 'react-router-dom';
+const CampaignItems = (props: any) => {
   const [campaignItems, setCampaignItems] = useState([]);
   const [votes, setVotes] = useState<number[]>([]);
 
@@ -27,11 +28,15 @@ const CampaignItems = () => {
   // }
 
   let castVote = function(votes: number[]) {
-    axios.post(`${HOST}api/CampaignItem`, {
-      voterName: 'John Doe',
-      campaignId: 1,
-      campaignIdList: votes
-    });
+    axios
+      .post(`${HOST}api/CampaignItem`, {
+        voterName: 'John Doe',
+        campaignId: 1,
+        campaignIdList: votes
+      })
+      .then(() => {
+        props.history.push('/thanks');
+      });
   };
 
   return (
@@ -67,4 +72,4 @@ const CampaignItems = () => {
   );
 };
 
-export default CampaignItems;
+export default withRouter(CampaignItems);

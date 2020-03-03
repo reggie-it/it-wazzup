@@ -8,13 +8,17 @@ const Campaign = React.lazy(() =>
   import('./components/campaign/campaign.component')
 );
 const Home = React.lazy(() => import('./components/home/home.component'));
-const CampaignItems = React.lazy(() => import('./components/campaignItems/campaignItems/campaignItems.component'));
+const CampaignItems = React.lazy(() =>
+  import('./components/campaignItems/campaignItems/campaignItems.component')
+);
+const Thanks = React.lazy(() => import('./components/thanks/thanks.component'));
 
 export enum RouteType {
   Root = '/',
   Home = '/home',
   Campaign = '/campaign',
-  CampaignItems = '/campaignItems'
+  CampaignItems = '/campaignItems',
+  Thanks = '/thanks'
 }
 
 const Routes = (): ReactElement => {
@@ -22,9 +26,14 @@ const Routes = (): ReactElement => {
     <>
       <Menu />
       <Switch>
-        <Route exact path={RouteType.Root} component={LazyLoad(CampaignItems)} />
+        <Route
+          exact
+          path={RouteType.Root}
+          component={LazyLoad(CampaignItems)}
+        />
         {/* <Route exact path={RouteType.Root} component={LazyLoad(Home)} /> */}
         <Route exact path={RouteType.Campaign} component={LazyLoad(Campaign)} />
+        <Route exact path={RouteType.Thanks} component={LazyLoad(Thanks)} />
       </Switch>
     </>
   );
