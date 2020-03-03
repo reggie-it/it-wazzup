@@ -31,5 +31,19 @@ namespace itwazzup.Api.Controllers
             return Ok(result);
         }
 
+
+        [HttpGet]
+        [Route("result/{campaignId}")]
+        [Description("Returns campaign results")]
+        public async Task<ActionResult<Models.CampaignResultModel>> GetCampaignResult([FromRoute] int campaignId)
+        {
+            var result = await Mediator.Send(new Queries.GetCampaignResult.Query()
+            {
+                CampaignId = campaignId
+            });
+
+            return Ok(result);
+        }
+
     }
 }

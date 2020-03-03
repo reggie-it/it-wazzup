@@ -13,5 +13,6 @@ namespace itwazzup.Domain.Entities
         public string CreatedBy { get; set; }
         public int MaxVotes { get; set; }
         public bool Closed { get; set; }
+        public List<CampaignItem> CampaignItems { get; set; }
     }
 }
