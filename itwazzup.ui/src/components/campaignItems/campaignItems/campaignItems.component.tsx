@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import CampaignItem from '../campaignItem/campaignItem.component';
 import { Button } from '@infotrack/zenith-ui';
 import './campaignItems.styles.scss';
+import { HOST } from '../../../constants/host';
 
 const CampaignItems = () => {
   const [campaignItems, setCampaignItems] = useState([]);
 
-  // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    axios.get('http://localhost:5000/api/CampaignItem?CampaignId=1').then(function (response) {
+    axios.get(`${HOST}api/CampaignItem?CampaignId=1`).then(function (response) {
       setCampaignItems(response.data);
     })
   }, []);
@@ -19,12 +19,24 @@ const CampaignItems = () => {
     let name = campaignItems[i]["name"];
     let description = campaignItems[i]["description"];
     let maxStars = campaignItems[i]["maxStars"];
+
+
     cards.push(<CampaignItem
       name={name}
       maxStars={maxStars}
       description={description}
     />);
   }
+
+  let castVote = function () {
+    axios.post(`${HOST}/api/CampaignItem`, {
+      voterName: "John Doe",
+      campaignId: 1,
+      campaignIdList: [
+
+      ]
+    })
+  };
 
   return (<div className="campaignItems">
     <div className="campaignName">
@@ -39,8 +51,7 @@ const CampaignItems = () => {
         fullWidth
         icon="emoji_events"
         iconPosition="left"
-        onClick={function noRefCheck() { }}
-        size={undefined}
+        onClick={castVote}
       >
         Submit
       </Button>
