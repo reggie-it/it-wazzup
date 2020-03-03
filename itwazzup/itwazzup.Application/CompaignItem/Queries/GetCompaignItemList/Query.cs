@@ -35,6 +35,7 @@ namespace itwazzup.Application.CampaignItem.Queries.GetCampaignItemList
         {
             Func<Domain.Entities.CampaignItem, CampaignItemModel> ToCampaignItemModel = x => new CampaignItemModel()
             {
+                Id = x.Id,
                 Name = x.Name,
                 Description = x.Description
             };
