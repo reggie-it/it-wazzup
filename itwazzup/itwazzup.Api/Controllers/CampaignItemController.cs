@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Models = itwazzup.Application.CampaignItem.Models;
 using Queries = itwazzup.Application.CampaignItem.Queries;
-using Commands = itwazzup.Application.CompaignItem.Commands;
+using Commands = itwazzup.Application.CampaignItem.Commands;
 
 namespace itwazzup.Api.Controllers
 {
@@ -12,12 +12,12 @@ namespace itwazzup.Api.Controllers
     public class CampaignItemController : MediatorController {
 
         [HttpGet]
-        [Description("Get list of compaign items, given a compaign ID.")]
+        [Description("Get list of campaign items, given a campaign ID.")]
         public async Task<ActionResult<Models.CampaignItemModel>> Get([FromQuery] int campaignId)
         {
             var result = await Mediator.Send(new Queries.GetCampaignItemList.Query()
             {
-                CompaignId = campaignId
+                CampaignId = campaignId
             });
 
             return Ok(result);

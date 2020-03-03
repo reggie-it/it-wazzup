@@ -17,7 +17,7 @@ namespace itwazzup.Application.CampaignItem.Queries.GetCampaignItemList
     [JsonSchema("GetCampaignItemListQuery")]
     public class Query : IRequest<List<CampaignItemModel>>
     {
-        public int CompaignId { get; set; }
+        public int CampaignId { get; set; }
     }
 
     /// <summary>
@@ -40,7 +40,7 @@ namespace itwazzup.Application.CampaignItem.Queries.GetCampaignItemList
             };
 
             return (await dbContext.CampaignItems
-                .Where(x => x.Campaign.Id == request.CompaignId)
+                .Where(x => x.Campaign.Id == request.CampaignId)
                 .ToListAsync()).Select(ToCampaignItemModel).ToList();
         }
     }

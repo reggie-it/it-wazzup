@@ -7,7 +7,7 @@ using MediatR;
 using itwazzup.Persistence.Context;
 using System.Linq;
 
-namespace itwazzup.Application.CompaignItem.Commands.CastVote
+namespace itwazzup.Application.CampaignItem.Commands.CastVote
 {
     /// <summary>
     /// Command
