@@ -1,0 +1,12 @@
+.campaignItem {
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+}
+
+.compaignItemHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

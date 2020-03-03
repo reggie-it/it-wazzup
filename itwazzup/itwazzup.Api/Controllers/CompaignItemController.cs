@@ -9,8 +9,7 @@ using Commands = itwazzup.Application.CompaignItem.Commands;
 namespace itwazzup.Api.Controllers
 {
     [Route("api/[controller]")]
-    public class CompaignItemController : MediatorController
-    {
+    public class CampaignItemController : MediatorController {
 
         [HttpGet]
         [Description("Get list of compaign items, given a compaign ID.")]

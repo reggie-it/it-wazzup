@@ -5,6 +5,8 @@ import * as constants from '../../constants/host';
 import './home.styles.scss';
 import Campaign from '../campaign/campaign.component';
 
+var renderCount = 0;
+
 const Home = () => {
   const [campaigns, setCampaigns] = useState([]);
 
@@ -18,6 +20,8 @@ const Home = () => {
       });
   };
 
+  renderCount++;
+  console.log("RENDER COUNT IS: " + renderCount);
   useAsync(async () => {
     loadCampaigns();
   }, []);
