@@ -1,8 +1,12 @@
 .main-menu {
   display: flex;
-  background-color: #1a95b6;
-
-  .hamburger-menu {
-    cursor: pointer;
+  background-color: black;
+  height: 70px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    height: 35px;
+    width: 80px;
   }
 }
