@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using itwazzup.Persistence.Context;
 
 namespace itwazzup.Persistence.Migrations
 {
     [DbContext(typeof(itwazzupDbContext))]
-    partial class itwazzupDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200303001053_AddVoterName")]
+    partial class AddVoterName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
